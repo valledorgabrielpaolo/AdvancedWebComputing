@@ -1,0 +1,72 @@
+
+body
+{
+	background-size: 100%;
+	background-color: white;
+}
+
+.banner
+{
+	
+	height: 110px;
+	width:85%;
+	padding-top: px;
+	position: ;
+	border-radius: 5pt;
+	margin: 0% 7%;
+
+}
+
+#logo-page
+{
+	height:  100px;
+	width: 100%;
+
+}
+
+div.searchbox-and-logos
+{
+	margin-left:7%;
+
+}
+
+#search-textbox
+{
+	border-radius: 3pt;
+	height: 30px;
+	width: 450px;
+}
+
+#search-button
+{
+	border-radius: 5pt;
+	width: 100px;
+	height: 50px;
+	margin-left: 10px;
+}
+
+.movie-result
+{
+	margin-left: 100px;
+}
+
+#movie-title
+{
+	margin-left: auto;
+}
+
+#movie-poster
+{
+	margin-left: 100px;
+}
+
+/*.div-results
+{
+	background-color: black;
+}
+*/
+
+.h3-result
+{
+	margin-left: 100px;
+}

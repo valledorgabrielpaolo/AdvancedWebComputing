@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New Waves Search Engine</title>
+
+	<link rel="stylesheet" href = "css.css" />
+
+</head>
+<body>
+
+	<script src="js/jquery-2.0.3.js"></script>
+	<!-- <script src="movie-search-app"></script> -->
+
+	<header class='banner'><img id='logo-page' src='images/images.jpg' width="100" height="" /></header>
+
+	
+		<div class = 'searchbox-and-logos'>
+			<table id = 'table-logo-socialsites'>
+				<tr>
+
+					<td>
+						<input id = "search-textbox" type = "text" autofocus='on' align='left' placeholder = "Search Movies"/>
+					</td>
+
+					<td>
+						<a href = "#" onclick='displayResult()'><img src = "images/button3.jpg" title = "Search" id = "search-button"></a>
+					</td>
+
+					<td width='197px'>
+						<div id='' align='center'></div>
+					</td> 
+					
+				</tr>
+			</table>
+		</div>
+
+		 <!--<div class="div-results"> <!--<h1>HELLO. THANK YOU!</h1>--> <!--</div> -->
+
+	<script type="text/javascript">
+		var searchedTitles = new Array();
+		var changeDiv = document.getElementById('div-header');
+		var searchedMovie = document.getElementById('search-textbox');
+        var searchButton = document.getElementById('search-button');
+        searchedMovie.onkeydown = function(ev){
+            if(ev.keyCode === 13){
+                displayResult();
+            }
+        }
+
+        var displayResult = function() {
+            if (searchedMovie.value.length === 0) {
+                alert('Please Enter Movie Title')
+            }
+
+			else{
+					    $(function(){
+
+					    
+						$('body').append('<h1 class="movie-result">' + "Search Result: " + searchedMovie.value + '<br></h1>');
+						$('body').append('<h3 class="h3-result">' + "Results:" + '<br><br></h1>');
+						$('.h3-result').fadeOut(1500, function(){ $(this).remove();});
+						//$('#movie-result').fadeIn(1500, function(){ $(this).remove();});
+
+						var server = 'http://api.rottentomatoes.com/api/public/v1.0/movies.json'
+						$.ajax({
+							url:server,
+							dataType: 'jsonp',
+							data:{
+								q: searchedMovie.value,
+								apiKey: 'hcrurhsttexasrgfm2y6yahm'
+							},
+							success:showMovies
+						});
+
+						function showMovies(response){
+							console.log('response', response);
+							var movies = response.movies;
+							var movieItems = document.getElementsByClassName('h3-result');
+							$('.h3-result').remove();
+							var searched = document.getElementsByClassName('movie-result')
+							$('.movie-result').remove();
+
+							for(var i = 0; i < movies.length; i++)
+							{
+								var movie = movies[i];
+								
+								$('body').append('<h3 class="h3-result" hidden="true">'+ movie.title + '</h3>');
+								$('body').append('<img class="h3-result" hidden="true" src="' + movie.posters.thumbnail + '"/>');
+								$('body').append('<h4 class="h3-result" hidden="true">Release Dates: <br>'+ movie.release_dates.dvd + '</h4>');
+								$('body').append('<h4 class="h3-result" hidden="true">Cast: <br>'+ movie.links.cast + '</h4>');
+								$('body').append('<h4 class="h3-result" hidden="true">Synopsis: <br>'+ movie.synopsis + '</h4>');
+								$('.h3-result').show('slow', function() {
+    
+  							});
+
+							}
+					
+						}
+						 
+						
+						});  
+						//searchedMovie.value= null;
+						//movie.remove();
+        		}
+        	};
+
+        
+    </script>
+
+</body>
+</html>
