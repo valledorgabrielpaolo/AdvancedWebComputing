@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+<title>Guestbook</title>
+
+  <head>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+    <link type="text/css" rel="stylesheet" href="/stylesheets/arzel_classes.css" />
+    <link type="text/css" rel="stylesheet" href="/stylesheets/arzel_elements.css" />
+    <link type="text/css" rel="stylesheet" href="/stylesheets/arzel_ids.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="shortcut icon" href="stylesheets/guestbook.png" />
+    <style type="text/css">
+    body {
+  background-image: url('stylesheets/hunter.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  min-height: 730px;
+  background-position: center;
+}
+</style>
+  </head>
+
+  <body>
+    <div id = "page">
+    <form id = "form1"action="/sign?guestbook_name={{ guestbook_name }}" method="post">
+      <div><textarea name="content" rows="2" cols="67" placeholder = "Write Your Message Here!"></textarea></div>
+      <div><input id = "search_box" type="submit" value="Leave your Message"></div>
+    </form>
+  </div>
+    <div id="result">{% for greeting in greetings %}
+      {% if greeting.author %}
+        To: <b>{{ greeting.author.nickname() }}</b>
+      {% else %}
+       An anonymous person wrote:
+      {% endif %}
+      <blockquote>{{ greeting.content }}
+        <hr>
+        <ul>{{ greeting.date }}<ul>by: {{guestbook_name}}</ul></ul></blockquote>
+    {% endfor %}
+
+  </div>
+    <header id="main_header">
+        <div id="main_menu">
+          <form id = "form2">Guestbook name:
+          <input type="text" id="search_box" placeholder="Input Your Name..." name="guestbook_name">
+          <input type="submit" id = "button" value="switch">
+          <label>USER:
+          <label>
+            {{guestbook_name}}
+          </label>
+        </label>
+          </form>
+          <a id = "login" href="{{ url|safe }}">{{ url_linktext }}</a>
+        </div>
+      </header>
+  <footer id="main_footer" class="paging">&copy; New Waves 2013, A.D. Satin &amp; G.P.I Valledor</footer>
+  </body>
+</html>
+{% endautoescape %}
