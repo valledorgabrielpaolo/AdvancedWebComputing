@@ -1,0 +1,116 @@
+#first, #second{
+	margin: 0px;
+}
+
+#first{
+	margin-right: 20px;
+}
+
+#main{
+	margin-bottom: 32px;
+	margin-top: 91px;
+	padding: 20px;
+}
+
+#main_footer{
+	background: rgba(0,0,0,0.6);
+	border: 1px solid rgba(0,0,0,0.3);
+	box-shadow: 0px -5px 5px rgba(0,0,0,0.4),
+				inset 0px 1px white,
+				inset 0px 5px 5px rgba(255,255,255,0.4);
+	bottom: 0px;
+	left: 0px;
+	padding: 5px;
+	position: fixed;
+	text-align: center;
+	width: 100%;
+}
+
+#main_header{
+	background: rgba(0,0,0,0.6);
+	border: 1px solid rgba(0,0,0,0.3);
+	box-shadow: 0px 5px 5px rgba(0,0,0,0.4),
+				inset 0px -1px white,
+				inset 0px -5px 5px rgba(255,255,255,0.4);
+	height: 90px;
+	left: 0px;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+}
+
+#main_menu{
+	padding: 15px 15px 0px 15px;
+}
+
+#options{
+	float: right;
+	position: relative;
+	right: 5px;
+	top: 3px;
+}
+
+#page_down a, #page_up a{
+	font-family: Colonna MT;
+	margin-right: 10px;
+	margin-left: 10px;
+	color: white;
+	text-decoration: none;
+	-webkit-transition: text-shadow 0.8s;
+}
+
+#results_area{
+	display: -webkit-flex;
+}
+
+#single_char_search{
+	font-family: Colonna MT;
+	font-size: 18px;
+	margin: 3pxpx;
+	padding-left: 60px;
+}
+
+#view_options{
+	display: inline-block;
+	font-size: 17px;
+	margin: 10px;
+}
+
+#sort_by, #sort_direction{
+	-webkit-transition: text-shadow 0.8s;
+}
+
+#sort_by:hover, #sort_direction:hover{
+	text-shadow: 0px 0px 4px rgb(255,255,255),
+				 0px 0px 6px rgb(255,255,255),
+				 0px 0px 8px rgb(255,255,255),
+				 0px 0px 10px rgb(0,255,0),
+				 0px 0px 14px rgb(0,255,0),
+				 0px 0px 18px rgb(0,255,0),
+				 0px 0px 22px rgb(0,255,0);
+}
+
+#white_space{
+	height: 32px;
+}
+#selected_movie_header{
+	color: #B0171F;
+	font-family: Colonna MT;
+	font-size: 200%;
+	margin: 0px;
+}
+
+
+#selected_movie_poster{
+	border-top: 5px solid gray;
+	border-right: 5px solid white;
+	border-bottom: 5px solid white;
+	border-left: 5px solid gray;
+	max-height: 400px;
+	max-width: 200px;
+	min-height: 400px;
+	min-width: 200px;
+}
+#selected_result_panel{
+	border: 2px solid black;
+}

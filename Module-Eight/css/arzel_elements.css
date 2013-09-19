@@ -1,0 +1,19 @@
+*{
+	color: white;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+a, a:hover, #sort_by a, #sort_direction a, #sort > a, #sort_by a:hover, #sort_direction a:hover{
+	color: white;
+	text-decoration: none;
+}
+
+body{
+	background-size: 100%;
+}
+
+.result_info h4{
+	margin: 0px;
+}

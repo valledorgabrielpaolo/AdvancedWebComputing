@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Moogle Search</title>
+		<link rel="stylesheet" type="text/css" href="css/arzel_elements.css"/>
+		<link rel="stylesheet" type="text/css" href="css/arzel_ids.css"/>
+		<link rel="stylesheet" type="text/css" href="css/arzel_classes.css"/>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	</head>
+	<body>	
+		<div id="main">
+                <div id="results"> 
+                        <div id="results_menu">     
+                        </div> 
+                        <div id="results_area">   
+                            </div> 
+                        </div> 
+                </div>  
+			<header id="main_header">
+				<div id="main_menu">
+					<input type="text" id="search_box" placeholder="Moogle Search..."/>
+					<input type="submit" id="btn" value="search">
+					<span id="view_options"><span id="page_down" class="paging"><a href="#">Preview</a></span> <span id="page_number">1</span> <span id="page_up" class="paging"><a href="#">Next</a></span><span id="sort" class="paging"><a href="#">...</a></span></span>
+					<ul id="options">
+						<a href="#"><li class="option_buttons" id="box_office">Box Office</li></a>
+						<a href="#"><li class="option_buttons" id="in_theaters">In Theaters</li></a>
+						<a href="#"><li class="option_buttons" id="opening">Opening</li></a>
+						<a href="#"><li class="option_buttons" id="upcoming">Upcoming</li></a>
+						<a href="#"><li class="option_buttons" id="top_ten">Top Ten</li></a>
+						<a href="#"><li class="option_buttons" id="latest">Latest</li></a>
+					</ul>
+				</div>
+				<ul id="single_char_search">
+					<a href="#"><li class="scs_button paging">A</li></a><a href="#"><li class="scs_button paging">B</li></a>
+					<a href="#"><li class="scs_button paging">C</li></a><a href="#"><li class="scs_button paging">D</li></a>
+					<a href="#"><li class="scs_button paging">E</li></a><a href="#"><li class="scs_button paging">F</li></a>
+					<a href="#"><li class="scs_button paging">G</li></a><a href="#"><li class="scs_button paging">H</li></a>
+					<a href="#"><li class="scs_button paging">I</li></a><a href="#"><li class="scs_button paging">J</li></a>
+					<a href="#"><li class="scs_button paging">K</li></a><a href="#"><li class="scs_button paging">L</li></a>
+					<a href="#"><li class="scs_button paging">M</li></a><a href="#"><li class="scs_button paging">N</li></a>
+					<a href="#"><li class="scs_button paging">O</li></a><a href="#"><li class="scs_button paging">P</li></a>
+					<a href="#"><li class="scs_button paging">Q</li></a><a href="#"><li class="scs_button paging">R</li></a>
+					<a href="#"><li class="scs_button paging">S</li></a><a href="#"><li class="scs_button paging">T</li></a>
+					<a href="#"><li class="scs_button paging">U</li></a><a href="#"><li class="scs_button paging">V</li></a>
+					<a href="#"><li class="scs_button paging">W</li></a><a href="#"><li class="scs_button paging">X</li></a>
+					<a href="#"><li class="scs_button paging">Y</li></a><a href="#"><li class="scs_button paging">Z</li></a>
+					<a href="#"><li class="scs_button paging">0</li></a><a href="#"><li class="scs_button paging">1</li></a>
+					<a href="#"><li class="scs_button paging">2</li></a><a href="#"><li class="scs_button paging">3</li></a>
+					<a href="#"><li class="scs_button paging">4</li></a><a href="#"><li class="scs_button paging">5</li></a>
+					<a href="#"><li class="scs_button paging">6</li></a><a href="#"><li class="scs_button paging">7</li></a>
+					<a href="#"><li class="scs_button paging">8</li></a><a href="#"><li class="scs_button paging">9</li></a>
+				</ul>
+			</header>
+			<footer id="main_footer" class="paging">&copy; New Waves 2013, A.D. Satin &amp; G.P.I Valledor</footer>
+		</div>
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script src="js/handlebars.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/arzel.js"></script>
+		
+		<!--Results template-->
+		<script id="results_template" type="x-handlebars-template">
+			{{#each this}}
+				<li class="result_box">
+					<img src="{{this.posters.thumbnail}}" class="result_poster"/>
+					<div class="result_info">
+						<h4>{{this.title}}</h4>
+						{{#if this.release_dates.theater}}
+							Release Date: {{{full_date this.release_dates.theater}}}<br/>
+						{{else}}
+							Release Date: Unknown<br/>
+						{{/if}}
+						Rated: {{this.mpaa_rating}}<br/>
+						{{#if this.synopsis}}
+							Synopsis: Available
+						{{else}}
+							Synopsis: Not Available
+						{{/if}}
+						<br/>
+						Synopsis: {{{this.synopsis}}}<br/>
+						
+					</div>
+				</li>
+			{{/each}}
+		</script>
+		<!--Selected results template-->
+		<script id="seleted_result_template" type="x-handlebars-template">
+			<div id "selected">
+			<img src="{{[0]}}"/>
+			{{[0]}} <br/>
+			Synopsis: {{{[0]}}} <br>
+			</div>
+		</script>
+	</body>
+</html>
